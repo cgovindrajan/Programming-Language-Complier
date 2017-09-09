@@ -210,21 +210,17 @@ ConstantExpression ∷= screenWidth | screenHeight
 BinaryExpression ∷= Expression op Expression
 
 Legal combinations shown:
-| BinaryExpression.type | Expression0.type | op | Expression1.type |
-| --------------------- |----------------- |--- |----------------- |
-| INTEGER | INTEGER | PLUS, MINUS | INTEGER |
-| IMAGE | IMAGE | PLUS, MINUS | IMAGE |
-| INTEGER | INTEGER | TIMES,DIV | INTEGER |
-| IMAGE | INTEGER | TIMES | IMAGE |
-| IMAGE | IMAGE | TIMES | INTEGER |
-| BOOLEAN | INTEGER|LT,GT,LE,GE | INTEGER |
-| BOOLEAN | BOOLEAN|LT,GT,LE,GE | BOOLEAN |
-| BOOLEAN | | EQUAL, NOTEQUAL | condition: Expression0.type = Expression1.type|
+| BinaryExpression.type | Expression0.type | op              | Expression1.type 			     |
+| --------------------- |----------------- |---------------- |---------------------------------------------- |
+| INTEGER               | INTEGER 	   | PLUS, MINUS     | INTEGER   			             |
+| IMAGE                 | IMAGE            | PLUS, MINUS     | IMAGE       				     |
+| INTEGER 	        | INTEGER 	   | TIMES,DIV       | INTEGER 	  				     |
+| IMAGE                 | INTEGER 	   | TIMES           | IMAGE 	    				     |
+| IMAGE 		| IMAGE 	   | TIMES           | INTEGER 	    				     |
+| BOOLEAN 		| INTEGER	   | LT,GT,LE,GE     | INTEGER 	    				     |
+| BOOLEAN 		| BOOLEAN	   | LT,GT,LE,GE     | BOOLEAN          			     |
+| BOOLEAN 		| 		   | EQUAL, NOTEQUAL | condition: Expression0.type = Expression1.type|
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 Tuple ∷= List<Expression>
 	condition:  for all expression in List<Expression>: Expression.type = INTEGER
