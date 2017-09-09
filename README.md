@@ -1,7 +1,7 @@
-## Programming-Language-Complier
+# Programming-Language-Complier
 Implement a compiler for a small programming language.
 
-# Step 1 :
+## Step 1 :
 Implement a scanner for the programming language with the following lexical structure.
 ```
 comment ::=   /*   NOT(*/)*  */
@@ -20,7 +20,7 @@ separator ::= 	;  | ,  |  (  |  )  | { | }
 operator ::=   	|  | &  |  ==  | !=  | < |  > | <= | >= | +  |  -  |  *   |  /   |  % | !  | -> |  |-> | <-
 ```
 
-# Step 2 :
+## Step 2 :
 Implement a recursive descent parser for the following context-free grammar:
 ```
 program ::=  IDENT block
@@ -49,7 +49,7 @@ weakOp  ∷= PLUS | MINUS | OR
 strongOp ∷= TIMES | DIV | AND | MOD     
 ```
 
-# Step 3:
+## Step 3:
 Create abstract syntax tree specified by the following abstract syntax:
 ```
 Program ∷= List<ParamDec> Block
@@ -82,7 +82,7 @@ Tuple :≔ List<Expression>
 type ∷= integer | image | frame | file | boolean | url
 ```
 
-# Step 4:
+## Step 4:
 Implement a LeBlanc-Cook symbol table.
 ```
 Program ∷= List<ParamDec> Block
@@ -210,44 +210,16 @@ ConstantExpression ∷= screenWidth | screenHeight
 BinaryExpression ∷= Expression op Expression
 
 Legal combinations shown:
-
-BinaryExpression.type
-Expression0.type
-op
-Expression1.type
-INTEGER
-INTEGER
-PLUS, MINUS
-INTEGER
-IMAGE
-IMAGE
-PLUS, MINUS
-IMAGE
-INTEGER
-INTEGER
-TIMES,DIV
-INTEGER
-IMAGE
-INTEGER
-TIMES
-IMAGE
-IMAGE
-IMAGE
-TIMES
-INTEGER
-BOOLEAN
-INTEGER
-LT,GT,LE,GE
-INTEGER
-BOOLEAN
-BOOLEAN
-LT,GT,LE,GE
-BOOLEAN
-BOOLEAN
-
-
-EQUAL, NOTEQUAL
-condition: Expression0.type = Expression1.type
+|BinaryExpression.type | Expression0.type | op | Expression1.type |
+|----------------------|------------------|----|------------------|
+|INTEGER|INTEGER|PLUS, MINUS|INTEGER|
+|IMAGE|IMAGE|PLUS, MINUS|IMAGE|
+|INTEGER|INTEGER|TIMES,DIV|INTEGER|
+|IMAGE|INTEGER|TIMES|IMAGE|
+|IMAGE|IMAGE|TIMES|INTEGER|
+|BOOLEAN|INTEGER|LT,GT,LE,GE|INTEGER
+|BOOLEAN|BOOLEAN|LT,GT,LE,GE|BOOLEAN
+|BOOLEAN||EQUAL, NOTEQUAL|condition: Expression0.type = Expression1.type
 
 Tuple ∷= List<Expression>
 	condition:  for all expression in List<Expression>: Expression.type = INTEGER
@@ -255,7 +227,7 @@ Tuple ∷= List<Expression>
 type ∷= integer | image | frame | file | boolean | url
 ```
 
-# Step 5 :
+## Step 5 :
 implement code generation for abstract syntax along with implemention of now and how they map into JVM  elements.
 ```
 Program ∷= Name List<ParamDec> Block
