@@ -133,58 +133,19 @@ BinaryChain ∷= Chain (arrow | bararrow)  ChainElem
 
 Legal combinations shown:  
 	
-BinaryChain
-Chain
-op
-ChainElem
-type <-IMAGE
-type =URL
-arrow
-type = IMAGE
-type <-IMAGE
-type = FILE
-arrow
-type = IMAGE
-type <-INTEGER
-type = FRAME
-arrow
-instanceof FrameOp & 
-firstToken ∈ { KW_XLOC, KW_YLOC}
-type <-FRAME
-type = FRAME
-arrow
-instanceof FrameOp & 
-firstToken ∈ { KW_SHOW, KW_HIDE, KW_MOVE}
-type <-INTEGER
-type = IMAGE
-arrow
-instanceof ImageOpChain) && firstToken ∈ { OP_WIDTH, OP_HEIGHT}
-type <-FRAME
-type = IMAGE
-arrow
-type = FRAME
-type <-NONE
-type = IMAGE
-arrow
-type = FILE
-type <-IMAGE
-type = IMAGE
-arrow | barrow
-instanceof FilterOpChain &
-firstToken ∈ {OP_GRAY, OP_BLUR, OP_CONVOLVE}
-type <-IMAGE
-type = IMAGE
-arrow
-instanceof ImageOpChain &
-firstToken ∈ {KW_SCALE}
-type <-IMAGE
-type = IMAGE
-arrow
-instanceof IdentChain & IdentChain.type = INTEGER
-type <-INTEGER
-type = INTEGER
-arrow
-instance of IdentChain & IdentChain.type = INTEGER
+| BinaryChain    | Chain          | op    	 | ChainElem    						           |
+| ------------   |--------------- | ------------ |------------------------------------------------------------------------ |
+| type <-IMAGE   | type =URL      | arrow 	 | type = IMAGE  							   |
+| type <-IMAGE   | type = FILE    | arrow 	 | type = IMAGE 							   |
+| type <-INTEGER | type = FRAME   | arrow 	 | instanceof FrameOp & firstToken ∈ { KW_XLOC, KW_YLOC}                   |
+| type <-FRAME   | type = FRAME   | arrow 	 | instanceof FrameOp & firstToken ∈ { KW_SHOW, KW_HIDE, KW_MOVE}          |
+| type <-INTEGER | type = IMAGE   | arrow 	 | instanceof ImageOpChain) && firstToken ∈ { OP_WIDTH, OP_HEIGHT} 	   |
+| type <-FRAME   | type = IMAGE   | arrow 	 | type = FRAME							           |
+| type <-NONE    | type = IMAGE   | arrow        | type = FILE							           |
+| type <-IMAGE   | type = IMAGE   | arrow/barrow | instanceof FilterOpChain & firstToken ∈ {OP_GRAY, OP_BLUR, OP_CONVOLVE} |
+| type <-IMAGE	 | type = IMAGE   | arrow 	 | instanceof ImageOpChain & firstToken ∈ {KW_SCALE} 		           |
+| type <-IMAGE   | type = IMAGE   | arrow 	 | instanceof IdentChain & IdentChain.type = INTEGER 			   |
+| type <-INTEGER | type = INTEGER | arrow 	 | instance of IdentChain & IdentChain.type = INTEGER			   |
 
 
 WhileStatement ∷= Expression Block
